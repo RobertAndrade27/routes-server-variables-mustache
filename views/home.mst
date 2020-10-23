@@ -1,19 +1,8 @@
-<h1>Seja bem vindo</h1>
-<p>Qualquer mensagem</p>
+{{> header}}
 
-{{#mostrar}}
-<p>Nome: {{nome}} -Idade:{{idade}}</p>
-{{/mostrar}}
+<h1>Pagina Home: </h1>
 
 
-<ul>
-{{#ingredientes}}
-    <li>{{nome}} - {{qt}} </li>
-{{/ingredientes}}
-</ul>
 
-<ul>
-{{#interesses}}
-    <li>{{.}}</li>
-{{/interesses}}
-</ul>
+
+<p>USUÁRIO LOGADO: {{userInfo.name}}</p>
