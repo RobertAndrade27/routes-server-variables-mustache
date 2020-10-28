@@ -19,7 +19,7 @@ const postSchema = new mongoose.Schema({
 
 postSchema.pre('save', function(next) {
     if(this.isModified('title')) {
-        this.slug = slug( this.title );
+        this.slug = slug( this.title, {lower:true} );
     }
 
     next();

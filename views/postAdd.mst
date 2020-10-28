@@ -13,6 +13,7 @@
 <br/>
     <label>
         Tags:
+        <small>Separe tags com virgula</small><input type="text" name="tags" />
 </label>
 <br/>
 <label>

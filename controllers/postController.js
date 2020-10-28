@@ -5,7 +5,22 @@ exports.add = (req, res) => {
     res.render('postAdd');    
 };
 
+
+exports.consult = async (req, res) => {
+    let responseJson ={
+        paginatit:'PROGRAMAS INICIAIS',
+        posts: []
+      
+    };
+    const posts = await Post.find();
+    responseJson.posts = posts;
+
+    res.render('consultaPost', responseJson);
+    //res.render('consultarPost');    
+};
+
 exports.addAction = async (req, res) => {
+    req.body.tags = req.body.tags.split(',').map(t=>t.trim());
     const post = new Post (req.body);
 
     try {
@@ -29,7 +44,10 @@ exports.edit = async (req, res) => {
 };
    
 exports.editAction = async (req, res) => {
+req.body.slug =require('slug')(req.body.title, {lower:true});
+
     //procurar item enviado.
+    try {
     const post = await Post.findOneAndUpdate(
         {slug:req.params.slug }, 
         req.body,
@@ -39,6 +57,10 @@ exports.editAction = async (req, res) => {
         }
 
     );
+    }   catch(error) {
+        req.flash('errpr', 'Ocorreu um erro');
+        return res.redirect('/post/'+req.params.slug+'/edit');
+    }
 
     req.flash('success', 'Post atualizado com sucesso!');
     //Pegar os dados e atualizar
