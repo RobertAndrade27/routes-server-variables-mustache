@@ -1,23 +1,20 @@
 const mongoose = require('mongoose');
-const Post = mongoose.model('Post');
+const Post  =  mongoose.model('Post');
 
+
+exports.view = async (req, res) => {
+    const post = await Post.findOne ({ slug:req.params.slug });
+    res.render('view', { post });
+
+}
+ 
 exports.add = (req, res) => {
     res.render('postAdd');    
 };
 
 
-exports.consult = async (req, res) => {
-    let responseJson ={
-        paginatit:'PROGRAMAS INICIAIS',
-        posts: []
-      
-    };
-    const posts = await Post.find();
-    responseJson.posts = posts;
+  
 
-    res.render('consultaPost', responseJson);
-    //res.render('consultarPost');    
-};
 
 exports.addAction = async (req, res) => {
     req.body.tags = req.body.tags.split(',').map(t=>t.trim());
@@ -35,16 +32,16 @@ exports.addAction = async (req, res) => {
     res.redirect('/');
 
 };
+
        
 exports.edit = async (req, res) => {
-    //1. Pegar as informações do post
     const post = await Post.findOne ({ slug:req.params.slug });
-    //2. Carrega o formulario em edição
     res.render('postEdit', { post });
 };
    
 exports.editAction = async (req, res) => {
 req.body.slug =require('slug')(req.body.title, {lower:true});
+req.body.tags = req.body.tags.split (',').map(t=>t.trim());
 
     //procurar item enviado.
     try {
@@ -58,7 +55,7 @@ req.body.slug =require('slug')(req.body.title, {lower:true});
 
     );
     }   catch(error) {
-        req.flash('errpr', 'Ocorreu um erro');
+        req.flash('error', 'Ocorreu um erro');
         return res.redirect('/post/'+req.params.slug+'/edit');
     }
 

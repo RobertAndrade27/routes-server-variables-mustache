@@ -1,5 +1,6 @@
+{{> header}}
 <h2>Adicionar Post </h2>
-
+    
     <form method="POST">
         <LABEL>
             Titulo:
@@ -23,8 +24,8 @@
     
 <a href="/"><button>Retorne</button></a>
 
-{{#flashes}}
+{{#flashes}} 
     {{#error}}
         <div>{{.}}</div>
-    {{/error}}
+    {{/error}}   
 {{/flashes}}

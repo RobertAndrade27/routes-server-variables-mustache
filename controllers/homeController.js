@@ -11,14 +11,14 @@ exports.UserMiddleware = (req, res, next) => {
 
 
 exports.index = async (req, res)=>{
-    let responseJson ={
-        paginatit:'PROGRAMAS INICIAIS',
+    let  responseJson = {
+        paginatit:'HOME',
         posts: []
-      
     };
     const posts = await Post.find();
     responseJson.posts = posts;
 
     res.render('home', responseJson);
-
 }
+
+

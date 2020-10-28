@@ -9,9 +9,15 @@ router.get('/users/login', userController.login);
 router.get('/post/add', postController.add);
 router.post('/post/add', postController.addAction);
 
-router.get ('/post/:slug/edit', postController.edit);
-router.post ('/post/:slug/edit', postController.editAction);
 
-router.get ('/post/consulta', postController.consult);
+router.get ('/post/:slug/edit', postController.edit);
+router.post('/post/:slug/edit', postController.editAction);
+
+
+router.get('/post/:slug', postController.view);
+
+
+
+
 
 module.exports = router;
