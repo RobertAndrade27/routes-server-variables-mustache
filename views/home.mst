@@ -1,9 +1,18 @@
 {{> header}}
 
-<h1>Pagina Home: </h1>
+<div class="tags">
+    {{#tags}}
+        <div class="tag {{class}}"><a href="/?t={{_id}}">{{_id}}({{count}})</div>
+    {{/tags}}
+</div>
+    
+Tag: {{tag}}
 
 {{#posts}}
     <div class="post">
+    {{#photo}}
+    <img src="/media/{{photo}}" />
+    {{/photo}}
     <h3><a href="/post/{{slug}}">{{title}}</a></h3>
     <p>{{body}}</p>
     <a href="/post/{{slug}}/edit"> [Editar]</a>

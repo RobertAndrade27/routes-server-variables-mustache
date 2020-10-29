@@ -1,7 +1,13 @@
-
+{{> header}}
 
 <h1> Descrição  </h1>
-
+  <label>
+    Imagem:
+    <br/>
+    {{#post.photo}}
+        <img src="/media/{{post.photo}}" width="200" />
+    {{/post.photo}}
+    </label>
 <h1>{{post.title}}</h1>
 <article>{{post.body}}</article>
 <hr/>

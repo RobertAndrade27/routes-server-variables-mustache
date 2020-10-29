@@ -23,3 +23,12 @@ const server = app.listen(app.get('port'), ()=>{
     console.log("Servidor rodando na porta: "+server.address().port);
 
 });
+
+
+/*Para Git clone <url>
+    instalar VSCode
+    MongoDB
+    Git
+    Yarn 
+    Node
+*/

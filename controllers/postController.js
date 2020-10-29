@@ -61,7 +61,11 @@ req.body.tags = req.body.tags.split (',').map(t=>t.trim());
 
     req.flash('success', 'Post atualizado com sucesso!');
     //Pegar os dados e atualizar
-
+   
     res.redirect('/');
+   
+    
 
 };
+
+
