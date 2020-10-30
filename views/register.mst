@@ -1,0 +1,30 @@
+{{> header}}
+<center>
+<h1>Faça seu Cadastro</h1>
+
+<form method ="POST">
+    <label>
+        Nome:
+        <input type="text" name="name" />
+    </label>
+
+    <br/>
+    <label>
+        Email:
+        <input type="email" name="email" />
+    </label>
+
+    <br/>
+    <label>
+        Senha:
+        <input type="password" name="password" />
+    </label>
+
+    <br/>
+        <input type="submit" value="Cadastrar">
+    
+</center>
+</form>
+
+
+<a href="/"><button>Retorne</button></a>

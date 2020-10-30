@@ -2,14 +2,6 @@ const mongoose = require('mongoose');
 const Post  =  mongoose.model('Post');
 
 
-exports.UserMiddleware = (req, res, next) => {
-
-    let info = {name:'uSER', id:123}
-    req.userInfo = info;
-    next();
-};
-
-
 exports.index = async (req, res)=>{
     let  responseJson = {
         paginatit:'HOME',
@@ -18,19 +10,24 @@ exports.index = async (req, res)=>{
         tag: ''
     };
 
-    responseJson.tag =req.query.t;
+    console.log(req.user);
 
-    const tags = await Post.getTagsList();
+    responseJson.tag =req.query.t;
+    const postFilter = (typeof responseJson.tag != 'undefined') ? {tags:responseJson.tag}: {};
+
+    const tagsPromise =  Post.getTagsList();     
+    const postsPromise =  Post.find(postFilter);
+
+    const [tags, posts] =await Promise.all ([tagsPromise, postsPromise]);
+
+  
+
     for(let i in tags) {
         if(tags[i]._id ==responseJson.tag) {
             tags[i].class = "selected";
         }
     }
     responseJson.tags = tags;
-
-    console.log(tags);
-    
-    const posts = await Post.find();
     responseJson.posts = posts;
 
     res.render('home', responseJson);

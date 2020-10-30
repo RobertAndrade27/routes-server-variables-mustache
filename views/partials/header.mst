@@ -6,9 +6,15 @@
     </head>
 <body>
 <header>
-<h1>Conexo Advantages</h1>
+    <h1>Conexo Advantages</h1>
+       {{#user}}
+        Olá, {{user.name}}! <a href="/users/logout">Sair</a>
+    {{/user}}
+ 
 <hr/>
 <ul>
+
+
     {{#h.menu}}
     <li><a href="{{slug}}">{{name}}</a></li>
     {{/h.menu}}
@@ -18,7 +24,7 @@
 
 {{#flashes}}
       {{#success}}
-        <div class ="warning">{{.}}</div>
+        <div class ="sucesso">{{.}}</div>
     {{/success}}
     {{#error}}
     <div class ="warning">{{.}}</div>

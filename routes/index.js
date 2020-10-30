@@ -6,8 +6,17 @@ const postController = require ('../controllers/postController');
 const imageMiddleware = require('../middlewares/imageMiddleware');
 
 const router = express.Router();
-router.get('/', homeController.UserMiddleware, homeController.index);
+router.get('/', homeController.index);
 router.get('/users/login', userController.login);
+router.post('/users/login', userController.loginAction);
+router.get('/users/logout', userController.logout);
+
+
+router.get('/users/register', userController.register);
+router.post('/users/register', userController.registerAction);
+
+
+
 router.get('/post/add', postController.add);
 router.post('/post/add', 
     imageMiddleware.upload,

@@ -33,13 +33,20 @@ align-items:center;
 li {
 padding:10px;
 }
-.warning {
+.sucesso {
 border:2px solid #424242;
-background-color:#2C5177;
-color:#FFF;
+background-color:#13d823;
+color:rgb(0, 0, 0);
 padding:10px 20px;
 border-radius:5px;
 }
+.warning {
+    border:2px solid #424242;
+    background-color:#f10a0a;
+    color:rgb(255, 255, 255);
+    padding:10px 20px;
+    border-radius:5px;
+    }
 .post {
 width:300px;
 display:inline-block;
