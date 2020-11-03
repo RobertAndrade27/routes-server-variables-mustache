@@ -11,6 +11,7 @@
 <h1>{{post.title}}</h1>
 <article>{{post.body}}</article>
 <hr/>
-<small>Tags: {{post.tags}}</small>
+
+<small>Tags: <br/> {{post.tags}}</small>
 <hr/>
 <a href="/"><button>Retorne</button></a>

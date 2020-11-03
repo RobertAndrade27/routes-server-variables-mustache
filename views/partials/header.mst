@@ -8,9 +8,8 @@
 <header>
     <h1>Conexo Advantages</h1>
        {{#user}}
-        Olá, {{user.name}}! <a href="/users/logout">Sair</a>
-    {{/user}}
- 
+        Olá, <a href="/profile">{{user.name}}! </a>!
+      {{/user}}       
 <hr/>
 <ul>
 

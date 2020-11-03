@@ -1,4 +1,4 @@
-const User = require ('../models/User')
+const User = require ('../models/User');
 
 
 exports.login = (req, res) => {
@@ -30,7 +30,7 @@ exports.registerAction = (req, res) => {
         const newUser = new User (req.body);
         User.register(newUser, req.body.password, (error) =>{
                 if(error) {
-                req.flash('error', "Ocorreu um erro, tente novamente mais tarde.");
+                req.flash('error', 'Ocorreu um erro, tente novamente mais tarde.');
                 res.redirect('/users/register');
                 return;
         }
@@ -44,3 +44,27 @@ exports.logout = (req, res) => {
         req.logout();
         res.redirect('/');
 }
+
+exports.profile = (req,res) => {
+        
+        res.render('profile', {});
+}
+
+exports.profileAction = async (req, res) =>{
+        try {
+        const user = await User.findOneAndUpdate(
+                { _id:req.user._id },
+                { name:req.body.name, email:req.body.email },
+                { new: true, runValidators:true}
+        );
+        }catch (e) {
+
+        req.flash('error', 'Ocorreu algum erro!'+e.message);
+        res.redirect('/profile');
+        return;
+
+        }
+        req.flash('success', 'Dados atualizados com sucesso!');
+        res.redirect('/');
+
+};

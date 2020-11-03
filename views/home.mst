@@ -1,12 +1,15 @@
 {{> header}}
 
 <div class="tags">
+{{#user}}
     {{#tags}}
-        <div class="tag {{class}}"><a href="/?t={{_id}}">{{_id}}({{count}})</div>
+        <div class="tsag {{class}}"><a href="/?t={{_id}}">{{_id}}({{count}})</div>
     {{/tags}}
+
+{{/user}}
 </div>
     
-Tag: {{tag}}
+
 
 {{#posts}}
     <div class="post">
@@ -14,7 +17,10 @@ Tag: {{tag}}
     <img src="/media/{{photo}}" />
     {{/photo}}
     <h3><a href="/post/{{slug}}">{{title}}</a></h3>
+    <small>Publicado por: {{author.name}}</small>
     <p>{{body}}</p>
-    <a href="/post/{{slug}}/edit"> [Editar]</a>
-    </div>
+    {{#user}}
+       <a href="/post/{{slug}}/edit"> [Editar]</a>
+    {{/user}}
+      </div>
 {{/posts}}

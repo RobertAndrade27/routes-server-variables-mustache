@@ -23,6 +23,7 @@
 <br/>
     <label>
         Tags:
+        <br/>
          <input type="tags" name="tags" value="{{post.tags}}" />
 </label>
 <br/>

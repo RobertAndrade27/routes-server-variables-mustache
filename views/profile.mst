@@ -1,0 +1,21 @@
+{{> header}}
+
+<h1> Meu perfil:  </h1>
+
+<form method="POST">
+
+      <label>
+       Nome completo:
+        <input type="text" name="name" value="{{user.name}}" />
+        </label>
+    <br/>
+    <label>
+       E-mail:
+        <input type="email" name="email" value="{{user.email}}" />
+        </label>
+   <br/>
+<label>
+    <input type="submit" value="Salvar" />
+    </label>
+</form>
+<a href="/"><button>Retorne</button></a>

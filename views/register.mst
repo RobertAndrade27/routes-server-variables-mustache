@@ -2,7 +2,7 @@
 <center>
 <h1>Faça seu Cadastro</h1>
 
-<form method ="POST">
+<form method="POST">
     <label>
         Nome:
         <input type="text" name="name" />
@@ -21,7 +21,7 @@
     </label>
 
     <br/>
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Cadastrar" />
     
 </center>
 </form>

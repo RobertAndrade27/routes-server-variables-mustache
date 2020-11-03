@@ -8,9 +8,9 @@
     <label>
         Email:
         <input type="email" name="email" />
-    </label>
-
+    </label>    
     <br/>
+    
     <label>
         Senha:
         <input type="password" name="password" />
