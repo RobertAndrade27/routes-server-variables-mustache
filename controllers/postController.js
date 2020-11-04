@@ -11,8 +11,6 @@ exports.view = async (req, res) => {
 exports.add = (req, res) => {
     res.render('postAdd');    
 };
-
-
   
 
 exports.addAction = async (req, res) => {

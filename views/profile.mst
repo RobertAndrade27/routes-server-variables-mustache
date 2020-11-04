@@ -1,5 +1,5 @@
 {{> header}}
-
+<center>
 <h1> Meu perfil:  </h1>
 
 <form method="POST">
@@ -14,8 +14,28 @@
         <input type="email" name="email" value="{{user.email}}" />
         </label>
    <br/>
+   <label>
+    <input type="submit" value="Salvar" />
+    </label>
+   <br/>
+
+</form>
+<form method="POST" action="/profile/password">
+      <label>
+       Nova Senha:
+        <input type="password" name="password"  />
+        </label>
+    <br/>
+    
+       Confirmar Senha:
+        <input type="password" name="password-confirm" />
+       
+   <br/>
+
+
 <label>
     <input type="submit" value="Salvar" />
     </label>
-</form>
-<a href="/"><button>Retorne</button></a>
+   <br/>
+
+</center>

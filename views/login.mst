@@ -18,10 +18,14 @@
 
     <br/>
         <input type="submit" value="Logar">
+
+        
     
-</center>
+
 </form>
 
+<a href="/users/forget">Esqueci minha senha </a>
+</center>
 
 
 <a href="/"><button>Retorne</button></a>
