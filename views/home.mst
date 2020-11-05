@@ -3,7 +3,7 @@
 <div class="tags">
 {{#user}}
     {{#tags}}
-        <div class="tsag {{class}}"><a href="/?t={{_id}}">{{_id}}({{count}})</div>
+        <div class="tags {{class}}"><a href="/?t={{_id}}">{{_id}}({{count}})</div>
     {{/tags}}
 
 {{/user}}
